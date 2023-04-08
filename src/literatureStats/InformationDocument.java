@@ -41,6 +41,10 @@ public class InformationDocument<T extends FrequencyDocument> {
      * @return
      */
     public List<String> getTopNWords(int n, SortingOrder so) {
+
+
+
+
         return null;
     }
 

@@ -12,10 +12,10 @@ public enum Verbosity {
      * TODO: constructor
      *  Ensure the class field is initialised.
      *
-     * @param verbosityLevel1
+     * @param verbosityLevel
      */
-    Verbosity(int verbosityLevel1) {
-        verbosityLevel = verbosityLevel1;
+    Verbosity(int verbosityLevel) {
+        this.verbosityLevel = verbosityLevel;
     }
 
     /**
@@ -33,7 +33,6 @@ public enum Verbosity {
      *   It is not verbose if the number is 0 or lower.
      * @return
      */
-    public boolean isVerbose() {
-        return false;
+    public boolean isVerbose() { return (verbosityLevel > 0);
     }
 }

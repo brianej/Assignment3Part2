@@ -52,11 +52,7 @@ public class BasicTextFileReader {
             throw new RuntimeException(e);
         }
 
-        if (allInput.size() == 0){
-            return null;
-        } else {
-            return allInput;
-        }
+        return allInput;
     }
 
     public static void main(String[] args) {

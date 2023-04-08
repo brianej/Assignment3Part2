@@ -40,30 +40,30 @@ public enum Translation {
           An empty word is unchanged.
      */
     DOG {
-        public String vowelMover(String args){
-            String[] argsSplited = args.split("");
-            String[] argsNew = new String[argsSplited.length - 1];
-            String nonVowels = "";
-
-            for (int i = 1; i < argsSplited.length; i++) {
-                if (VOWELS.contains(argsSplited[i])){
-                    break;
-                } else {
-                    nonVowels = nonVowels + argsSplited[i];
-                }
-            }
-
-            String[] nonVowelsSplited = nonVowels.split("");
-
-            for (int i = nonVowelsSplited.length; i < (argsSplited.length + nonVowelsSplited.length); i++) {
-                if ((i + nonVowelsSplited.length) <= argsSplited.length ) {
-                    argsNew[i - nonVowelsSplited.length] = argsSplited[i];
-                } else {
-
-                }
-            }
-
-        }
+//        public String vowelMover(String args){
+//            String[] argsSplited = args.split("");
+//            String[] argsNew = new String[argsSplited.length - 1];
+//            String nonVowels = "";
+//
+//            for (int i = 1; i < argsSplited.length; i++) {
+//                if (VOWELS.contains(argsSplited[i])){
+//                    break;
+//                } else {
+//                    nonVowels = nonVowels + argsSplited[i];
+//                }
+//            }
+//
+//            String[] nonVowelsSplited = nonVowels.split("");
+//
+//            for (int i = nonVowelsSplited.length; i < (argsSplited.length + nonVowelsSplited.length); i++) {
+//                if ((i + nonVowelsSplited.length) <= argsSplited.length ) {
+//                    argsNew[i - nonVowelsSplited.length] = argsSplited[i];
+//                } else {
+//
+//                }
+//            }
+//
+//        }
         @Override
         public String translate(String word) {
             String translated = "";

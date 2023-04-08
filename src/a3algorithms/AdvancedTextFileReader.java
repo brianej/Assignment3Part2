@@ -65,15 +65,6 @@ public class AdvancedTextFileReader {
             throw new RuntimeException(e);
         }
 
-        if (allInput.size() == 0){
-            return null;
-        } else {
-            return allInput;
-        }
-    }
-
-    public static void main(String[] args) {
-        String file = "/Users/brianjauw/Downloads/Assignment3Part2/input/advanced-01-portion.txt";
-        System.out.println(advancedReadFile(file));
+        return allInput;
     }
 }

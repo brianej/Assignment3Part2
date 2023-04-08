@@ -14,12 +14,12 @@ class AdvancedTextFileReaderTest {
     void advancedReadFile() {
         List<String> empty = new ArrayList<>();
 
-//        assertEquals(empty,
-//                     AdvancedTextFileReader
-//                             .advancedReadFile("input/00-empty.txt"));
-//        assertEquals(empty,
-//                     AdvancedTextFileReader
-//                             .advancedReadFile("input/01-one-word-per-line.txt"));
+        assertEquals(empty,
+                     AdvancedTextFileReader
+                             .advancedReadFile("input/00-empty.txt"));
+        assertEquals(empty,
+                     AdvancedTextFileReader
+                             .advancedReadFile("input/01-one-word-per-line.txt"));
 
         assertEquals(Arrays.asList("keep", "1", "keep2", "3", "4", "5", "6"),
                      AdvancedTextFileReader.advancedReadFile(

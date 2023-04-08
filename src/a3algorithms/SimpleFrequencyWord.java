@@ -6,10 +6,10 @@ package a3algorithms;
  */
 public class SimpleFrequencyWord implements Comparable<SimpleFrequencyWord> {
     protected String word;
-    protected int count;
+    protected int count = 1;
 
-    SimpleFrequencyWord(String word1) {
-        word = word1 ;
+    SimpleFrequencyWord(String word) {
+        this.word = word ;
     }
 
     /**

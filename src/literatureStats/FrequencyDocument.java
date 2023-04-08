@@ -76,6 +76,8 @@ public class FrequencyDocument {
      */
     public FrequencyDocument(FrequencyReaderConfig config,
                              String nonWordChars) {
+        this.config = config;
+        this.nonWordChars = nonWordChars;
     }
 
     /**
@@ -84,6 +86,7 @@ public class FrequencyDocument {
      * @param config
      */
     public void setConfig(FrequencyReaderConfig config) {
+        this.config = config;
     }
 
     /**
@@ -131,7 +134,7 @@ public class FrequencyDocument {
      * @return
      */
     public String getNonWordChars() {
-        return "TODO FrequencyDocument.getNonWordChars";
+        return nonWordChars;
     }
 
     /**
@@ -140,6 +143,7 @@ public class FrequencyDocument {
      * @param nonWordChars
      */
     public void setNonWordChars(String nonWordChars) {
+        this.nonWordChars = nonWordChars;
     }
 
     /**

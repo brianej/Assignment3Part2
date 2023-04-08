@@ -11,8 +11,8 @@ class BasicTextFileReaderTest {
 
     @Test
     void readFile() {
-//        assertEquals(BasicTextFileReader.readFile("input/00-empty.txt"),
-//                     new ArrayList<String>());
+        assertEquals(BasicTextFileReader.readFile("input/00-empty.txt"),
+                     new ArrayList<String>());
 
         assertEquals(
                 Arrays.asList("one", "word", "per", "line", "no", "whitespace",
