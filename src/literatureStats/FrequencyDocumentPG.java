@@ -17,6 +17,9 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      *  one-liner.
      */
     public FrequencyDocumentPG() {
+        this.config   = null;
+        this.words    = null;
+        this.filename = null;
     }
 
     /**
@@ -26,6 +29,9 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      * @param filename
      */
     public FrequencyDocumentPG(String filename) {
+        this.config   = null;
+        this.words    = null;
+        this.filename = filename;
     }
 
     /**
@@ -37,6 +43,9 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      * @param nonWordChars
      */
     public FrequencyDocumentPG(String filename, String nonWordChars) {
+        this.config   = null;
+        this.nonWordChars    = nonWordChars;
+        this.filename = filename;
     }
 
     /**
@@ -59,6 +68,10 @@ public class FrequencyDocumentPG extends FrequencyDocument {
      */
     public FrequencyDocumentPG(FrequencyReaderConfig config,
                                String nonWordChars) {
+        this.config   = config;
+        this.words    = null;
+        this.nonWordChars = nonWordChars;
+        this.filename = filename;
     }
 
     /**

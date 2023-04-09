@@ -40,35 +40,30 @@ public enum Translation {
           An empty word is unchanged.
      */
     DOG {
-//        public String vowelMover(String args){
-//            String[] argsSplited = args.split("");
-//            String[] argsNew = new String[argsSplited.length - 1];
-//            String nonVowels = "";
-//
-//            for (int i = 1; i < argsSplited.length; i++) {
-//                if (VOWELS.contains(argsSplited[i])){
-//                    break;
-//                } else {
-//                    nonVowels = nonVowels + argsSplited[i];
-//                }
-//            }
-//
-//            String[] nonVowelsSplited = nonVowels.split("");
-//
-//            for (int i = nonVowelsSplited.length; i < (argsSplited.length + nonVowelsSplited.length); i++) {
-//                if ((i + nonVowelsSplited.length) <= argsSplited.length ) {
-//                    argsNew[i - nonVowelsSplited.length] = argsSplited[i];
-//                } else {
-//
-//                }
-//            }
-//
-//        }
+        public String vowelMover(String args){
+            String[] argsSplited = args.split("");
+            String ending = argsSplited[0];
+            String begin = "";
+
+            for (int i = 1; i < argsSplited.length; i++) {
+                if (VOWELS.contains(argsSplited[i])){
+                    break;
+                } else {
+                    ending += argsSplited[i];
+                }
+            }
+
+            for (int i = (ending.length() - 1); i < (argsSplited.length - ending.length()); i++) {
+                begin += argsSplited[i];
+            }
+
+            return (begin + ending);
+        }
+
         @Override
         public String translate(String word) {
             String translated = "";
             char firstChar = (word.substring(0,1)).charAt(0);
-            String restWord = word.substring(1);
 
             if ((word == " ") || (word == "") || (word == null) || (word.length() == 0)) {
                 translated = word;
@@ -76,18 +71,18 @@ public enum Translation {
 
             switch (firstChar) {
                 case 'b':
-                    translated = restWord + "ark";
+                    translated = vowelMover(word) + "bark";
                 case 'g':
-                    translated = restWord + "rrrowl";
+                    translated = vowelMover(word) + "rrrowl";
                 case 'r':
-                    translated = restWord + "rruf";
+                    translated = vowelMover(word) + "rruf";
                 case 'w':
                     String firstTwo = word.substring(0,2);
-                    String restTwo = word.substring(2);
+                    String rest = word.substring(1);
                     if (firstTwo == "wo"){
-                        translated = restTwo + "oofWoof";
+                        translated = rest + "woofWoof";
                     } else {
-                        translated = restWord + "woof";
+                        translated = vowelMover(word) + "oof";
                     }
                     break;
                 default: translated = word + "ay";

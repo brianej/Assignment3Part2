@@ -5,7 +5,7 @@ package a3algorithms;
  * This word has no knowledge of any other words.
  */
 public class SimpleFrequencyWord implements Comparable<SimpleFrequencyWord> {
-    protected String word;
+    protected final String word;
     protected int count = 1;
 
     SimpleFrequencyWord(String word) {
@@ -43,7 +43,7 @@ public class SimpleFrequencyWord implements Comparable<SimpleFrequencyWord> {
      */
     @Override
     public String toString() {
-        return "TODO SimpleFrequencyWord.toString()";
+        return String.format("%4d\t%s%n", count, word);
     }
 
     /**
@@ -53,7 +53,7 @@ public class SimpleFrequencyWord implements Comparable<SimpleFrequencyWord> {
      * @return
      */
     public String toString(String wordStatePattern) {
-        return "TODO SimpleFrequencyWord.toString(String)";
+        return String.format(wordStatePattern, count, word);
     }
 
     /**
@@ -65,6 +65,15 @@ public class SimpleFrequencyWord implements Comparable<SimpleFrequencyWord> {
      */
     @Override
     public int compareTo(SimpleFrequencyWord other) {
-        return Integer.MIN_VALUE;
+        int val;
+
+        if (count > other.getCount()) {
+            val = 1;
+        } else if (count == other.getCount()) {
+            val = 0;
+        } else {
+            val = -1;
+        }
+        return val;
     }
 }

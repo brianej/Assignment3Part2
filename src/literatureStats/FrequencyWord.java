@@ -13,9 +13,9 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
     /**
      * TODO: Store the set of vowels [a, e, i, o, u] ("y" is not considered a vowel.
      */
-    public static Set<String> VOWELS = new HashSet<>();
+    public static Set<String> VOWELS = new HashSet<>(Arrays.asList("a", "e", "i", "o", "u", "A", "E", "I", "O", "U"));
 
-    protected String normalised = null; // TODO: you'll need to initialise this elsewhere
+    protected String normalised;
 
     protected int count;
 
@@ -24,8 +24,12 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
      *
      * @param word
      */
-    FrequencyWord(String word) {
-        normalised = normalise(word);
+    FrequencyWord(String word) {this.normalised = normalise(word);}
+
+    public static String noWhiteSpace(String original){
+        String[] splitedString = new String[]{original.replace(" ", "")};
+
+        return String.join("",splitedString);
     }
 
     /**
@@ -36,7 +40,19 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
      * @return
      */
     public static String normalise(String word) {
-        return normalise(word);
+        String[] splitedString = noWhiteSpace(word).split("");
+
+        for (int i = 0; i < splitedString.length ; i++) {
+            char ori = splitedString[i].charAt(0);
+
+            if ((ori >= 'A') && (ori <= 'Z')){
+                ori = (char) (ori + 32);
+            }
+
+            splitedString[i] = String.valueOf(ori);
+        }
+
+        return String.join("",splitedString);
     }
 
     /**
@@ -73,7 +89,7 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
      */
     @Override
     public String toString() {
-        return (DEFAULT_WORD_STATS_PATTERN + normalised + count);
+        return String.format("%4d\t%s%n", count, normalised);
     }
 
     /**
@@ -84,7 +100,7 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
      * @return
      */
     public String toString(String wordStatePattern) {
-        return (wordStatePattern + normalised + count);
+        return String.format(wordStatePattern, count, normalised);
     }
 
     /**
@@ -96,6 +112,15 @@ public class FrequencyWord implements Comparable<FrequencyWord> {
      */
     @Override
     public int compareTo(FrequencyWord other) {
-        return Integer.MIN_VALUE;
+        int val;
+
+        if (count > other.getCount()) {
+            val = 1;
+        } else if (count == other.getCount()) {
+            val = 0;
+        } else {
+            val = -1;
+        }
+        return val;
     }
 }

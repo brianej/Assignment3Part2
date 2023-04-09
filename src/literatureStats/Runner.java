@@ -124,7 +124,11 @@ public class Runner {
         try ( final FileInputStream fis = new FileInputStream(filename) ) {
             int ignored =
                     fis.read(); // check file is not empty by reading something
-            ok = true;
+            if (ignored == -1){
+                ok = false;
+            } else {
+                ok = true;
+            }
         } catch ( IOException e ) {ok = false;}
 
         log(ok);

@@ -6,7 +6,7 @@ public enum SortingOrder {
     DESCENDING(false),
     ASCENDING(true),
     REVERSED(true);
-    final boolean reversed = false; // TODO: Initialise this elsewhere
+    final boolean reversed; // TODO: Initialise this elsewhere
 
     /**
      * TODO: constructor.
@@ -15,6 +15,7 @@ public enum SortingOrder {
      *  @param reversed
      */
     SortingOrder(boolean reversed) {
+        this.reversed = reversed;
     }
 
     /**
@@ -23,6 +24,6 @@ public enum SortingOrder {
      * @return
      */
     public boolean isReversed() {
-        return false;
+        return reversed;
     }
 }

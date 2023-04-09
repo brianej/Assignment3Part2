@@ -18,8 +18,7 @@ public class FrequencyDocumentReader {
      * @param dictionaryFileName
      * @return
      */
-    public static Map<String, FrequencyWord> readDocument(
-            String dictionaryFileName) {
+    public static Map<String, FrequencyWord> readDocument(String dictionaryFileName) {
         return null;
     }
 

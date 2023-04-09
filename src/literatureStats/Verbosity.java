@@ -34,6 +34,6 @@ public enum Verbosity {
      * @return
      */
     public boolean isVerbose() {
-        return (verbosityLevel <= 0);
+        return (verbosityLevel > 0);
     }
 }

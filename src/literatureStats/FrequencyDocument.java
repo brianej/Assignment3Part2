@@ -27,9 +27,6 @@ public class FrequencyDocument {
      * initialise() methods before you can use the object safely.
      */
     public FrequencyDocument() {
-        this.config   = null;
-        this.words    = null;
-        this.filename = null;
     }
 
     /**
@@ -41,6 +38,8 @@ public class FrequencyDocument {
      */
     public FrequencyDocument(String filename) {
         this.filename = filename;
+        initialise(filename);
+        readDocument();
     }
 
     /**
