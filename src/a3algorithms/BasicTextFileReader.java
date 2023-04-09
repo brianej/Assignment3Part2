@@ -39,11 +39,27 @@ public class BasicTextFileReader {
                     if ((allInputA[i] == " ") || (allInputA[i] == "") || (allInputA[i] == null) || (allInputA[i].length() == 0)) {
                         continue;
                     } else {
+                        ArrayList<String> newWord = new ArrayList<>();
+                        String newWordS = "";
+
                         String normalised =
                                 Normaliser.normalise(allInputA[i]);
 
-                        if(!(allInput.contains(normalised))){
-                            allInput.add(normalised);
+                        String[] wordSplit = normalised.split("");
+
+                        for (int j = 0; j < wordSplit.length; j++) {
+                            if (!(wordSplit[j].matches(charsToDelete))){
+                                newWord.add(wordSplit[j]);
+                            }
+                        }
+
+                        for (String words : newWord){
+                            newWordS += words;
+                        }
+
+
+                        if((!(allInput.contains(newWordS))) && (!((newWordS == " ") || (newWordS == "") || (newWordS == null) || (newWordS.length() == 0)))){
+                            allInput.add(newWordS);
                         }
                     }
                 }
@@ -58,9 +74,7 @@ public class BasicTextFileReader {
     public static void main(String[] args) {
 //        String space = " ";
 //        System.out.println(space.length());
-        String file = "/Users/brianjauw/Downloads/Assignment3Part2/input" +
-                "/macbeth" +
-                ".txt";
+        String file = "/Users/brianjauw/Desktop/Assignment3Part2/input/06-one-word-per-line-with-punctuation.-and-captials.txt";
         System.out.println(readFile(file));
     }
 }
